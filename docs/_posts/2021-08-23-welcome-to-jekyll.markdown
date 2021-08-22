@@ -9,9 +9,34 @@ Hello! Covid Aggregate is a blog that aggregates various researches on COVID-19,
 ## Blog Setup
 This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown.
 
-{% include ../assets/test.html}
+{% include test.html %}
+\
+This example is generated with the following configuration (details omitted):
 
-This is a test plot.
+{% highlight python %}
+# range of all coefficients
+all_coeffs = np.arange(-1, 1, 0.01)
+
+# function used in the plot
+def f1(x, c1):
+    return (100 - x**2) * np.sin(x / c1)
+
+# pre-computing and tracing the datapoints
+for coeff in all_coeffs:
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(-10, 10, 0.01),
+            y=f1(np.arange(-10, 10, 0.01), coeff),
+            name=f'{coeff:.2f}',
+            line={'color': 'rgb(102, 197, 204)', 'width': 5},
+            visible=False
+        )
+    )
+{% endhighlight %}
+
+Above is a simple demonstration of interactive plots using plotly. Use the sliders to modify the coefficients. All the assets and plots are saved in the `docs/_includes` directory, while codes used will be saved in `experiments` as a jupyter notebook.
+
+
 
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
