@@ -75,8 +75,7 @@ for coeff in all_coeffs:
     )
 {% endhighlight %}
 
-{% include interactive_demo.html %}
-
+{% include interactive_demo.html %}<br/>
 ## Blog Schedule
 
 This blog will aim to post at minimum two posts per month, although this may vary depending on my schedule, or the COVID situation of the future.
