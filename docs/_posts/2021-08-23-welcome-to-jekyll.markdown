@@ -9,6 +9,10 @@ Hello! Covid Aggregate is a blog that aggregates various researches on COVID-19,
 ## Blog Setup
 This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown.
 
+{% include ../assets/test.html}
+
+This is a test plot.
+
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
 Jekyll also offers powerful support for code snippets:
