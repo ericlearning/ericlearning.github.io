@@ -33,9 +33,9 @@ fig = px.density_contour(
 fig.update_traces(contours_coloring='fill')
 {% endhighlight %}
 
-{% include density_contour_demo.html %}
+{% include introduction/density_contour_demo.html %}
 
-{% include density_heatmap_demo.html %}
+{% include introduction/density_heatmap_demo.html %}
 
 The following code creates an interactive plotly scatterplot.
 
@@ -50,7 +50,7 @@ fig.update_xaxes(title_text='variable_x')
 fig.update_yaxes(title_text='variable_y')
 {% endhighlight %}
 
-{% include scatterplot_demo.html %}
+{% include introduction/scatterplot_demo.html %}
 
 The following code creates an interactive plotly line graph that can be modified via a slider.
 
@@ -75,7 +75,7 @@ for coeff in all_coeffs:
     )
 {% endhighlight %}
 
-{% include interactive_demo.html %}<br/>
+{% include introduction/interactive_demo.html %}<br/>
 ## Blog Schedule
 
 This blog will aim to post at minimum two posts per month, although this may vary depending on my schedule, or the COVID situation of the future.
