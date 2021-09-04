@@ -16,7 +16,7 @@ The following code creates an interactive diagram via p5js.
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
     <script type="text/javascript" src="{{ "/assets/introduction/example.js" | relative_url }}"></script>
     <script type="text/javascript" src="{{ "/assets/introduction/example2.js" | relative_url }}"></script>
-</div>
+</div><br/>
 
 ## Interactive Plot Examples
 
