@@ -15,6 +15,9 @@ The following code creates an interactive diagram via p5js.
 <div id="sketch">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
     <script type="text/javascript" src="{{ "/assets/introduction/example.js" | relative_url }}"></script>
+</div><br/>
+<div id="sketch2">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
     <script type="text/javascript" src="{{ "/assets/introduction/example2.js" | relative_url }}"></script>
 </div><br/>
 

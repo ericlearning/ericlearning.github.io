@@ -5,7 +5,7 @@ let noiseScale = 0.005;
 function setup() {
   pixelDensity(1);
   canvas = createCanvas(400, 400);
-  canvas.parent("sketch");
+  canvas.parent("sketch2");
   sliderZ = createSlider(0, 500, 100);
   sliderZ.position(10, 10);
   sliderZ.style('width', '150px');
