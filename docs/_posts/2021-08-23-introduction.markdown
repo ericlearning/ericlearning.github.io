@@ -11,14 +11,33 @@ p5js: true
 Hello! Covid Aggregate is a blog that aggregates various researches on COVID-19, especially on data science aspects such as forecasts or projection models. The purpose of this blog is to aggregate countless research papers on these topics, distill them down to their main ideas, and explain them in a data science perspective with interactive visualizations.
 
 ## Blog Setup
-This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown. Other interactive figures are added by converting the experiments (usually done in python) to [p5js](https://p5js.org/).
+This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown. Other interactive figures are added by converting the experiments (usually done in python) to [p5js](https://p5js.org/). The blog supports MathJax.
+
+## MathJax examples
+All mathematical equations here are rendered using MathJax. It can display equations in a separate line:
+
+$$\lim_{h \to 0} \frac{f(x+h)-f(x)}{h} = f'(x)$$
+
+and an another example:
+
+$$\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$$
+
+and also display inline formulas such as
+$$\vec{v_{avg}}=\frac{\Delta \vec{x}}{\Delta t}$$ and 
+$$\vec{a_{avg}}=\frac{\Delta \vec{v}}{\Delta t}$$.
+
+For both cases, simply cover the equation with `$$`, such as `$$\frac{A}{B}$$`.
 
 ## P5JS Plot Examples
 
 The following code creates an interactive diagram via p5js.
+
+Move your cursor around faster to make the square brighter. The size is determined by a 2D Perlin noise of that coordinate.
 <div id="sketch">
     <script type="text/javascript" src="{{ "assets/introduction/example.js" | relative_url }}"></script>
 </div><br/>
+
+Displays a 2D slice of a 3D Perlin noise. The first slider moves around the z-axis, and the second slider quantize the colors.
 <div id="sketch2">
     <script type="text/javascript" src="{{ "assets/introduction/example2.js" | relative_url }}"></script>
 </div><br/>
