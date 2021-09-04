@@ -1,4 +1,4 @@
-const s = (p) => {
+const sirs = (p) => {
     // plotting parameters
     let plt;
     let sliders;
@@ -28,10 +28,11 @@ const s = (p) => {
     // setup the visualizations for the analyses
     p.setup = () => {
         canvas = p.createCanvas(500, 500);
+        canvas.parent("sketch2");
 
-        [sliders, init] = sliderInit(initValue, 80, [20, 50], 150, p=p);
-        [slidersParam, initParam] = sliderInit(initValueParam, 385, [20, 110], 50, p=p);
-        checkbox = checkboxInit(sliders[0], p.fixedN, p=p);
+        [sliders, init] = sliderInit(canvas, initValue, 80, [20, 50], 150, p=p);
+        [slidersParam, initParam] = sliderInit(canvas, initValueParam, 385, [20, 110], 50, p=p);
+        checkbox = checkboxInit(canvas, sliders[0], p.fixedN, p=p);
         changeModelParam(model, modelParam, initParam)
 
         args = [];
@@ -44,6 +45,7 @@ const s = (p) => {
         plt.getYAxis().setAxisLabelText("Population");
         plt.setYLim(-2000.0, 26000.0);
         addLayers(plt, layerNames, points, colors);
+        console.log('sirs', canvas.position().y)
     };
 
     // draw the plot and update them based on slider value
@@ -70,7 +72,7 @@ const s = (p) => {
 
         p.background(255);
         drawPlot(plt);
-        drawUI(sliders, slidersParam, legends, legendsParam, checkbox, realN, colors, p=p);
+        drawUI([80, 385], [[20, 50], [20, 110]], sliders, slidersParam, legends, legendsParam, checkbox, realN, colors, p=p);
     };
 
     p.fixedN = () => {
@@ -79,4 +81,4 @@ const s = (p) => {
 
 }
 
-let vis = new p5(s);
+let vis_sirs = new p5(sirs);
