@@ -12,7 +12,11 @@ This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https
 ## P5JS Plot Examples
 
 The following code creates an interactive diagram via p5js.
-<div id="sketch"><script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script><script type="text/javascript" src="{{ "/assets/sketch.js" | relative_url }}"></script></div>
+<div id="sketch">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+    <script type="text/javascript" src="{{ "/assets/introduction/example.js" | relative_url }}">
+    <script type="text/javascript" src="{{ "/assets/introduction/example2.js" | relative_url }}">
+</script></div>
 
 ## Interactive Plot Examples
 
