@@ -23,12 +23,12 @@ If I took a bus with those infected by COVID-19, I might have been infected. If 
 {% include image.html url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Coin_Toss_%283635981474%29.jpg/800px-Coin_Toss_%283635981474%29.jpg" caption="All at a coin toss." width="50%"%}
 {% endcomment %}
 
-But at a broader level, there is a different story. Looking at the COVID-19 statistics over time, there is a clear sign of trend:
+But at a broader level, there is a different story. Looking at the COVID-19 statistics over time, **there is a clear sign of trend**:
 * The rise of the cases at an exponential fashion
 * waves that look similar to each other
 * falls and rises that correspond to various government-level policies (quarantine, vaccination), etc.
 
-The stochastic events at a local scale leads to the [emergence](https://en.wikipedia.org/wiki/Emergence) of new behaviors only present at a global scale.
+The **stochastic events** at a local scale in complex systems (human civilization) leads to the [emergence](https://en.wikipedia.org/wiki/Emergence) of **new behaviors** only present at a global scale.
 
 In this case, it would be possible to express the general trend of an epidemic over time $$t$$ using a mathematical model $$F(t)$$, which can be tweaked with various knobs $$\alpha, \beta$$ that brings the real data $$D$$ and the model's prediction closer $$D(t) \sim F(t, \alpha, \beta)$$.
 
@@ -39,10 +39,29 @@ The search for such model of an infectious disease is largely discussed in the f
 >
 > &mdash; <cite>[Principles of Epidemiology in Public Health Practice, Third Edition](https://www.cdc.gov/csels/dsepd/ss1978/index.html)</cite>
 
-Especially in the COVID-19 epidemic, numerous researches experimented with the shape (mathematical formalization) and the knob (parameter) of the model to create a model that can give the best insights about this epidemic, and has been used to drive various decisions in our society.
+Especially in the COVID-19 epidemic, [numerous researches](https://arxiv.org/pdf/2104.12556.pdf) experimented with the **shape (mathematical formalization)** and the **knob (parameter)** of the model to create a model that can give the best insights about this epidemic. These models have been used to make [important public health decisions](https://www.nature.com/articles/d41586-020-01003-6).
 
-## Blog Setup
-This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown. Other interactive figures are added by converting the experiments (usually done in python) to [p5js](https://p5js.org/). The blog supports MathJax.
+## Susceptible, Infectious, Recovered
+
+One of the simplest, and reasonably effective model is the SIR Model. Given the current time $$t$$, the SIR Model predicts the number of susceptible $$S(t)$$, infectious $$I(t)$$, and recovered individuals $$R(t)$$.
+
+As all mathematical models of reality are, the SIR model builds on [several assumptions](https://jamanetwork.com/journals/jama/fullarticle/2766672):
+
+
+**Individuals go through $$S \to I \to R$$**
+* $$I \to R$$ is a reasonable assumption in measeles, which lets those infected within [retain their immunity](https://www.bphc.org/whatwedo/infectious-diseases/Infectious-Diseases-A-to-Z/Pages/Measles.aspx); Hence remaining forever [^1] at $$R$$.
+* $$S \to I$$ is not a reasonable assumption in many diseases. For example, the [viral load of a COVID-19 patient peaks few days before the symptom starts](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7929560/). It takes time to transition from $$S \to I$$.
+* Staying on $$R$$ is not reasonable, as people sometimes get reinfected from the disease they recovered from.
+
+[^1]: There are rare cases of measle reinfection, but we are talking in general here.
+
+**Population remains constant: $$S(t) + I(t) + R(t) = N$$**
+* This fails to account for events such as child birth and death.
+
+**There is a homogeneous mixing of the population (everyone has equal chance of contact).**
+* People form different subgroups that they interact more often than others.
+* Individuals have difference in how frequently they interact with others.
+* Population density is not homogeneous across areas.
 
 ## P5JS Plot Examples
 
@@ -61,3 +80,4 @@ This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https
 <div id="sketch3">
     <script type="text/javascript" src="{{ "assets/p1/sirv_projection.js" | relative_url }}"></script>
 </div><br/>
+
