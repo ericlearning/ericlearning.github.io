@@ -3,11 +3,20 @@ layout: post
 title:  "Introduction to the Blog"
 date:   2021-08-23 00:58:35 +0900
 categories: Misc
+dependencies:
+    - p5js
 ---
 Hello! Covid Aggregate is a blog that aggregates various researches on COVID-19, especially on data science aspects such as forecasts or projection models. The purpose of this blog is to aggregate countless research papers on these topics, distill them down to their main ideas, and explain them in a data science perspective with interactive visualizations.
 
 ## Blog Setup
-This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown.
+This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown. Other interactive figures are added by converting the experiments (usually done in python) to [p5js](https://p5js.org/).
+
+## P5JS Plot Examples
+
+The following code creates an interactive diagram via p5js.
+<div id="sketch">
+    <script type="text/javascript" src="introduction/sketch.js">
+</div>
 
 ## Interactive Plot Examples
 
