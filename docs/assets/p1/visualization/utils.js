@@ -49,24 +49,24 @@ function drawUI(x, y, sliders, slidersParam, legends, legendsParam, checkbox, re
 }
 
 function drawUIGlobal(x, y, sliders, slidersParam, legends, legendsParam, checkbox, realN, colors) {
-    fill(0);
-    textSize(14);
+    p.fill(0);
+    p.textSize(14);
     for (let i = 0; i < sliders.length; i++) {
-        text(legends[i], x[0] + 25, i * y[0][0] + y[0][1]);
+        p.text(legends[i], x[0] + 175, i * y[0][0] + y[0][1] + 17);
     }
     for (let i = 0; i < slidersParam.length; i++) {
-        text(legendsParam[i], x[1] + 12, i * y[1][0] + y[1][1]);
+        p.text(legendsParam[i], x[1] + 63, i * y[1][0] + y[1][1] + 15);
     }
 
-    text('Fixed N', 200, 17);
-    textSize(12);
-    text('People', 200, 47);
-    textSize(23);
-    text(Math.round(realN), checkbox.x + 5, sliders[0].y + 47 - canvY)
+    p.text('Fixed N', 377, 70);
+    p.textSize(12);
+    p.text('People', 423, 100);
+    p.textSize(23);
+    p.text(Math.round(realN), 354, 101);
 
     for (let i = 0; i < sliders.length; i++) {
-        fill(colors[i]);
-        circle(x[0] + 25, i * y[0][0] + y[0][1], 10);
+        p.fill(colors[i]);
+        p.circle(x[0] + 164, i * y[0][0] + y[0][1] + 12, 10);
     }
 }
 

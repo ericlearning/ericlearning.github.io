@@ -3,3 +3,12 @@
 ---
 
 @import "minima";
+
+.image {
+    text-align: center;
+
+    .caption {
+        color: $grey-color;
+        margin-top: $spacing-unit/3;
+    }
+}

@@ -14,7 +14,32 @@ p5js: true
 <script type="text/javascript" src="{{ "assets/p1/odesolver/utils.js" | relative_url }}"></script>
 <script type="text/javascript" src="{{ "assets/p1/visualization/utils.js" | relative_url }}"></script>
 
-Hello! Covid Aggregate is a blog that aggregates various researches on COVID-19, especially on data science aspects such as forecasts or projection models. The purpose of this blog is to aggregate countless research papers on these topics, distill them down to their main ideas, and explain them in a data science perspective with interactive visualizations.
+
+At an individual level, the spread of an epidemic appears quite random.
+
+If I took a bus with those infected by COVID-19, I might have been infected. If I missed the bus that and chose to take a cab, I might have been safe. From the first-person perspective we have in our lives, the spread of an infectious disease often seems like a random event as the result of a coin-flip.<br/>
+
+{% comment %}
+{% include image.html url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Coin_Toss_%283635981474%29.jpg/800px-Coin_Toss_%283635981474%29.jpg" caption="All at a coin toss." width="50%"%}
+{% endcomment %}
+
+But at a broader level, there is a different story. Looking at the COVID-19 statistics over time, there is a clear sign of trend:
+* The rise of the cases at an exponential fashion
+* waves that look similar to each other
+* falls and rises that correspond to various government-level policies (quarantine, vaccination), etc.
+
+The stochastic events at a local scale leads to the [emergence](https://en.wikipedia.org/wiki/Emergence) of new behaviors only present at a global scale.
+
+In this case, it would be possible to express the general trend of an epidemic over time $$t$$ using a mathematical model $$F(t)$$, which can be tweaked with various knobs $$\alpha, \beta$$ that brings the real data $$D$$ and the model's prediction closer $$D(t) \sim F(t, \alpha, \beta)$$.
+
+Once such model is obtained, one should be able to predict the spread of the virus into the future by extrapolating $$t$$ into the future. Governments can tweak the knobs of the model and make predictions to be informed of the consequence certain [interventions](https://en.wikipedia.org/wiki/Public_health_intervention). With this information, they can decide what is the best course of action to contain the virus and bring down the cases to zero.
+
+The search for such model of an infectious disease is largely discussed in the field of [epidemiology](https://www.cdc.gov/careerpaths/k12teacherroadmap/epidemiology.html).
+> By definition, epidemiology is the study ... of the distribution ... and determinants ... of health-related states and events (not just diseases) in specified populations (neighborhood, school, city, state, country, global).
+>
+> &mdash; <cite>[Principles of Epidemiology in Public Health Practice, Third Edition](https://www.cdc.gov/csels/dsepd/ss1978/index.html)</cite>
+
+Especially in the COVID-19 epidemic, numerous researches experimented with the shape (mathematical formalization) and the knob (parameter) of the model to create a model that can give the best insights about this epidemic, and has been used to drive various decisions in our society.
 
 ## Blog Setup
 This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown. Other interactive figures are added by converting the experiments (usually done in python) to [p5js](https://p5js.org/). The blog supports MathJax.
