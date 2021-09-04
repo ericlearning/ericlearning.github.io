@@ -3,7 +3,11 @@ layout: post
 title:  "Introduction to the Blog"
 date:   2021-08-23 00:58:35 +0900
 categories: Misc
+mathjax: true
+p5js: true
 ---
+
+
 Hello! Covid Aggregate is a blog that aggregates various researches on COVID-19, especially on data science aspects such as forecasts or projection models. The purpose of this blog is to aggregate countless research papers on these topics, distill them down to their main ideas, and explain them in a data science perspective with interactive visualizations.
 
 ## Blog Setup
@@ -12,12 +16,11 @@ This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https
 ## P5JS Plot Examples
 
 The following code creates an interactive diagram via p5js.
-<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
 <div id="sketch">
-    <script type="text/javascript" src="{{ "/assets/introduction/example.js" | relative_url }}"></script>
+    <script type="text/javascript" src="{{ "assets/introduction/example.js" | relative_url }}"></script>
 </div><br/>
 <div id="sketch2">
-    <script type="text/javascript" src="{{ "/assets/introduction/example2.js" | relative_url }}"></script>
+    <script type="text/javascript" src="{{ "assets/introduction/example2.js" | relative_url }}"></script>
 </div><br/>
 
 ## Interactive Plot Examples
