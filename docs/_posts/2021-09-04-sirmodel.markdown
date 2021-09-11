@@ -45,8 +45,15 @@ Especially in the COVID-19 epidemic, [numerous researches](https://arxiv.org/pdf
 
 One of the simplest, and reasonably effective model is the SIR Model. Given the current time $$t$$, the SIR Model predicts the number of susceptible $$S(t)$$, infectious $$I(t)$$, and recovered individuals $$R(t)$$.
 
-As all mathematical models of reality are, the SIR model builds on [several assumptions](https://jamanetwork.com/journals/jama/fullarticle/2766672):
+$$\frac{\mathrm{d} S}{\mathrm{d} t} = -\frac{\beta I S}{N}$$
 
+$$\frac{\mathrm{d} I}{\mathrm{d} t} = \frac{\beta I S}{N} - \gamma I$$
+
+$$\frac{\mathrm{d} R}{\mathrm{d} t} = \gamma I$$
+
+The SIR Model does not model $$S(t)$$, $$I(t)$$, and $$R(t)$$ directly. Rather than describing their exact values, the **model describes their change over time** with differential equations. Although there does exist an exact analytical solution for these equations, these differential equations give us the greatest insight into the nature of epidemics.
+
+As all mathematical models of reality are, the SIR model builds on [several assumptions](https://jamanetwork.com/journals/jama/fullarticle/2766672):
 
 **Individuals go through $$S \to I \to R$$**
 * $$I \to R$$ is a reasonable assumption in measeles, which lets those infected within [retain their immunity](https://www.bphc.org/whatwedo/infectious-diseases/Infectious-Diseases-A-to-Z/Pages/Measles.aspx); Hence remaining forever [^1] at $$R$$.
@@ -56,12 +63,34 @@ As all mathematical models of reality are, the SIR model builds on [several assu
 [^1]: There are rare cases of measle reinfection, but we are talking in general here.
 
 **Population remains constant: $$S(t) + I(t) + R(t) = N$$**
-* This fails to account for events such as child birth and death.
+* This fails to account for events such as child birth and death (these are called vital dynamics).
 
 **There is a homogeneous mixing of the population (everyone has equal chance of contact).**
 * People form different subgroups that they interact more often than others.
 * Individuals have difference in how frequently they interact with others.
 * Population density is not homogeneous across areas.
+
+
+$$\Large{ \frac{\color{#FF6B6B}{\mathrm{d}} \color{#4ECDC4}{S}}{\color{#FF6B6B}{\mathrm{d}} \color{#FCBA04}{t}} = \color{#C10430}{-} \color{#000000}{\frac{ \color{#0CCE6B}{\beta} \color{#0909C6}{I} \color{#E37ED0}{S} } { \color{#30BCED}{N} }}}$$
+
+> The <font color="FF6B6B">change</font> of the <font color="4ECDC4">number of Susceptible people</font> over <font color="FCBA04">time</font> <font color="C10430">decreases</font> by a certain <font color="0CCE6B">propo</font><font color="30BCED">rtion</font> of <font color="0909C6">all the intera</font><font color="E37ED0">ctions between</font> the <font color="0909C6">Infected</font> and <font color="E37ED0">Susceptible</font> people. That <font color="0CCE6B">propo</font><font color="30BCED">rtion</font> represents the ratio of the <font color="0CCE6B">number of Susceptible people infected by a single Infected person per day</font> to the <font color="30BCED">entire population</font>.
+
+
+$$\Large{ \frac{\color{#FF6B6B}{\mathrm{d}} \color{#0909C6}{I}}{\color{#FF6B6B}{\mathrm{d}} \color{#FCBA04}{t}} = \frac{\beta I S}{N} - \color{#FF830E}{\gamma} \color{#0909C6}{I} }$$
+
+> The <font color="FF6B6B">change</font> of the <font color="0909C6">number of Infected people</font> over <font color="FCBA04">time</font> increase by the amount transfered over from $$\frac{\mathrm{d} S}{\mathrm{d} t}$$. A <font color="FF830E">certain proportion</font> of the <font color="0909C6">infected people</font> gets <font color="C10430">removed</font> as they <font color="662C91">recover</font>.
+
+$$\Large{ \frac{\color{#FF6B6B}{\mathrm{d}} \color{#662C91}{R}}{\color{#FF6B6B}{\mathrm{d}} \color{#FCBA04}{t}} = \gamma I }$$
+
+> The <font color="FF6B6B">change</font> of the <font color="662C91">number of Recovered people</font> over <font color="FCBA04">time</font> increases by the amount transfered over from $$\frac{\mathrm{d} I}{\mathrm{d} t}$$.
+
+{% comment %}
+> The **<font color="FF6B6B">change</font>** of the **<font color="4ECDC4">number of Susceptible people</font>** over **<font color="FCBA04">time</font>** **<font color="C10430">decreases</font>** by a certain **<font color="0CCE6B">propo</font><font color="30BCED">rtion</font>** of **<font color="0909C6">all the intera</font><font color="E37ED0">ctions between</font>** the **<font color="0909C6">Infected</font>** and **<font color="E37ED0">Susceptible</font>** people. That **<font color="0CCE6B">propo</font><font color="30BCED">rtion</font>** represents the ratio of the **<font color="0CCE6B">number of Susceptible people infected by a single Infected person per day</font>** to the **<font color="30BCED">entire population</font>**.
+{% endcomment %}
+
+While $$S$$, $$I$$, and $$R$$ represent the number of people, values such as $$\beta$$ and $$\gamma$$ are knobs (parameters) that is defined by the properties of the epidemic. Intuitively, having a higher $$\beta$$ will infect the population faster (as more people gets removed from $$I$$ and transfers over to $$I$$), and having a higher $$\gamma$$ will make the population recover faster.
+
+
 
 ## P5JS Plot Examples
 

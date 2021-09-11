@@ -12,6 +12,9 @@
   {% if page.mathjax %}
   <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
+          extensions: [
+            "color.js"
+          ],
           Tex: {equationNumbers: {autoNumber: "AMX"}}
       });
   </script>
