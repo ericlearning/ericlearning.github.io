@@ -25,8 +25,7 @@ github_username:  ericlearning
 # Build settings
 markdown: kramdown
 theme: minima
-plugins:
-  - jekyll-feed
+plugins: ["jekyll-feed", "jekyll-scholar"]
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -39,3 +38,6 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+scholar:
+  style: modern-language-association

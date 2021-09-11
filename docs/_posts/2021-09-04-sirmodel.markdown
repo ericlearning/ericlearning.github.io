@@ -88,16 +88,62 @@ $$\Large{ \frac{\color{#FF6B6B}{\mathrm{d}} \color{#662C91}{R}}{\color{#FF6B6B}{
 > The **<font color="FF6B6B">change</font>** of the **<font color="4ECDC4">number of Susceptible people</font>** over **<font color="FCBA04">time</font>** **<font color="C10430">decreases</font>** by a certain **<font color="0CCE6B">propo</font><font color="30BCED">rtion</font>** of **<font color="0909C6">all the intera</font><font color="E37ED0">ctions between</font>** the **<font color="0909C6">Infected</font>** and **<font color="E37ED0">Susceptible</font>** people. That **<font color="0CCE6B">propo</font><font color="30BCED">rtion</font>** represents the ratio of the **<font color="0CCE6B">number of Susceptible people infected by a single Infected person per day</font>** to the **<font color="30BCED">entire population</font>**.
 {% endcomment %}
 
-While $$S$$, $$I$$, and $$R$$ represent the number of people, values such as $$\beta$$ and $$\gamma$$ are knobs (parameters) that is defined by the properties of the epidemic. Intuitively, having a higher $$\beta$$ will infect the population faster (as more people gets removed from $$I$$ and transfers over to $$I$$), and having a higher $$\gamma$$ will make the population recover faster.
+While $$S$$, $$I$$, and $$R$$ represent the number of people, values such as $$\beta$$ and $$\gamma$$ are knobs (parameters) that is defined by the properties of the epidemic. Intuitively, having a higher $$\beta$$ will infect the population faster (as more people gets removed from $$I$$ and transfers over to $$I$$), and having a higher $$\gamma$$ will make the population recover faster.<br/>
 
+Below is a custom simulation of the SIR model. The **top sliders** control $$S(0)$$, $$I(0)$$, $$R(0)$$. $$N$$ is constrained to be 20000, and the **Fixed N** controlls that constraint. The **bottom sliders** control $$\beta$$ and $$\gamma$$ are the aforementioned parameters of the SIR Model, each controlling the infection and recovery rate. Try tweaking $$\beta$$ and $$\gamma$$ and see if the results are as you expected.
 
-
-## P5JS Plot Examples
+Check out the code on [GitHub](https://github.com/ericlearning/epidemiological-modeling-js).
 
 <div id="sketch">
     <script type="text/javascript" src="{{ "assets/p1/sir_projection.js" | relative_url }}"></script>
 </div><br/>
 
+## Basic Reproduction Number
+
+Let's look into the details of the **Basic Reproduction Number**, and its connections with the SIR Model. As mentioned in [Notes on R0](https://web.stanford.edu/~jhj1/teachingdocs/Jones-on-R0.pdf), **Basic Reproduction Number** is expected number of infection from a single case in an environment where everyone is susceptible.
+
+It also notes that
+
+$$R_0 \sim \left(\frac{\text{infection}}{\text{contact}}\right) \cdot \left(\frac{\text{contact}}{\text{time}}\right) \cdot \left(\frac{\text{time}}{\text{infection}}\right)$$
+
+$$R_0 = \tau \cdot \bar{c} \cdot d$$
+
+The first terms $$\normalsize{ \left(\frac{\text{infection}}{\text{contact}}\right) }$$ and $$\tau$$ represents **transmissability** (probability of infection).\\
+The second terms $$\normalsize{ \left(\frac{\text{contact}}{\text{time}}\right) }$$ and $$\bar{c}$$ represents **rate of contact** between susceptible and infected.\\
+The third terms $$\normalsize{ \left(\frac{\text{time}}{\text{infection}}\right) }$$ and $$d$$ represents **duration of infectiousness**.
+
+<br/>
+Now, how does this return to our SIR Model? Let's take a detailed look at the two parameters that make up the SIR Model equations.
+
+$$\frac{\mathrm{d} S}{\mathrm{d} t} = -\frac{\beta I S}{N}$$
+
+$$\frac{\mathrm{d} I}{\mathrm{d} t} = \frac{\beta I S}{N} - \gamma I$$
+
+$$\frac{\mathrm{d} R}{\mathrm{d} t} = \gamma I$$
+
+$$\beta$$ is the **effective contact rate**, or the **rate of secondary infection from a case** $$\normalsize{ \left(\frac{\text{infection}}{\text{time}}\right) }$$.\\
+$$\gamma$$ is the **rate of recovery** with a unit of $$\normalsize{ \left(\frac{\text{infection}}{\text{time}}\right) }$$.
+
+<br/>
+Here, $$\beta=\tau \cdot \bar{c}$$, and the units check out $$\normalsize{ \left(\frac{\text{infection}}{\text{time}}\right) } = \normalsize{ \left(\frac{\text{infection}}{\text{contact}}\right) } \cdot \normalsize{ \left(\frac{\text{contact}}{\text{time}}\right) }$$.\\
+Also, $$\gamma=d^{-1}$$, and the units check out $$\normalsize{ \left(\frac{\text{infection}}{\text{time}}\right) } = \normalsize{ \left(\frac{\text{time}}{\text{infection}}\right)^{-1} }$$
+
+<br/>
+Therefore, we can derive that in a SIR model, the **basic reproduction number** is
+
+$$R_0 = \frac{\beta}{\gamma}$$
+
+R_0 determines how fast
+
+R_0 > 1, threshold parameter on whether epidemic occur or not
+
+But all of this is theoretical. How does one obtain 
+
+However, it is important to remember that $$R_0$$ assumes that all of the population is susceptible. This is not the case
+
+
+
+{% comment %}
 <div id="sketch2">
     <script type="text/javascript" src="{{ "assets/p1/sirs_projection.js" | relative_url }}"></script>
 </div><br/>
@@ -109,4 +155,4 @@ While $$S$$, $$I$$, and $$R$$ represent the number of people, values such as $$\
 <div id="sketch3">
     <script type="text/javascript" src="{{ "assets/p1/sirv_projection.js" | relative_url }}"></script>
 </div><br/>
-
+{% endcomment %}
