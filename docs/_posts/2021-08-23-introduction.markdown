@@ -7,9 +7,6 @@ mathjax: true
 p5js: true
 ---
 
-
-Hello! Covid Aggregate is a blog that aggregates various researches on COVID-19, especially on data science aspects such as forecasts or projection models. The purpose of this blog is to aggregate countless research papers on these topics, distill them down to their main ideas, and explain them in a data science perspective with interactive visualizations.
-
 ## Blog Setup
 This blog is hosted on [github pages](pages.github.com), and uses [Jekyll](https://jekyllrb.com/) to generate the static website from markdown. Interactive plots are mainly created using [plotly](https://plotly.com/), an interactive plotting library for Python. It is then exported to html, and embedded into markdown. Other interactive figures are added by converting the experiments (usually done in python) to [p5js](https://p5js.org/). The blog supports MathJax.
 
@@ -111,4 +108,4 @@ for coeff in all_coeffs:
 {% include introduction/interactive_demo.html %}<br/>
 ## Blog Schedule
 
-This blog will aim to post at minimum two posts per month, although this may vary depending on my schedule, or the COVID situation of the future.
+This blog will aim to post at minimum two posts per month, although this may vary depending on my schedule.
