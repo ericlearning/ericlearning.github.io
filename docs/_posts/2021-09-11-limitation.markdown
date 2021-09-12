@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Paper Review: Complexity of the Basic Reproduction Number"
-date:   2021-09-04 00:58:35 +0900
+date:   2021-09-11 00:58:35 +0900
 categories: Misc
 mathjax: true
 p5js: false

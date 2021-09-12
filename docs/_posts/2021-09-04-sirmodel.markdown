@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SIR Model, and its variants for Epidemiological Modeling"
+title:  "SIR Model for Epidemiological Modeling"
 date:   2021-09-04 00:58:35 +0900
 categories: Misc
 mathjax: true
