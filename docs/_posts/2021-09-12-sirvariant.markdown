@@ -20,20 +20,9 @@ Under certain assumptions about the population and the infectious disease, the S
 
 **Under the following [Assumptions](https://jamanetwork.com/journals/jama/fullarticle/2766672):**
 
-**1. Individuals go through $$S \to I \to R$$**
-* $$I \to R$$ is a reasonable assumption in measeles, which lets those infected within [retain their immunity](https://www.bphc.org/whatwedo/infectious-diseases/Infectious-Diseases-A-to-Z/Pages/Measles.aspx); Hence remaining forever [^1] at $$R$$.
-* $$S \to I$$ is not a reasonable assumption in many diseases. For example, the [viral load of a COVID-19 patient peaks few days before the symptom starts](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7929560/). It takes time to transition from $$S \to I$$.
-* Staying on $$R$$ is not reasonable, as people sometimes get reinfected from the disease they recovered from.
-
-[^1]: There are rare cases of measle reinfection, but we are talking in general here.
-
-**2. Population remains constant: $$S(t) + I(t) + R(t) = N$$**
-* This fails to account for events such as child birth and death (these are called vital dynamics).
-
-**3. There is a homogeneous mixing of the population (everyone has equal chance of contact).**
-* People form different subgroups that they interact more often than others.
-* Individuals have difference in how frequently they interact with others.
-* Population density is not homogeneous across areas.
+* Individuals go through $$S \to I \to R$$ <br/>
+* Population remains constant: $$S(t) + I(t) + R(t) = N$$ <br/>
+* There is a homogeneous mixing of the population (everyone has equal chance of contact).
 
 **The SIR Model evolves over time as such:**
 
@@ -43,8 +32,42 @@ $$\frac{\mathrm{d} I}{\mathrm{d} t} = \frac{\beta I S}{N} - \gamma I$$
 
 $$\frac{\mathrm{d} R}{\mathrm{d} t} = \gamma I$$
 
-Of course, it isn't always the case
+Of course, there are many cases where **these assumptions do not hold**.
+* $$S \to I$$ is not a reasonable assumption in many diseases. For example, the [viral load of a COVID-19 patient peaks few days before the symptom starts](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7929560/). It takes time to transition from $$S \to I$$. Also, cases of reinfection make the assumotion of staying on $$R$$ unreasonable.
 
+* Constant population fails to account for events such as child birth and death (these are called vital dynamics), and makes the model only useful in cases where the vital dynamics are insignificant compared to the infection cases.
+
+* The homogenity assumption doesn't hold if people form different subgroups that they interact more often than others. Individuals also have difference in how frequently they interact with others, and population density is not homogeneous across areas.
+
+Therefore, the epidemiologists must choose a set of assumptions that satisfy the condition of the disease they are trying to model. Here, we will discuss some of the variants of the SIR model and their assumptions.
+
+## Susceptible, Infectious, Recovered (with Vital Dynamics)
+$$\frac{\mathrm{d} S}{\mathrm{d} t} = \Lambda - \mu S -\frac{\beta I S}{N}$$
+
+$$\frac{\mathrm{d} I}{\mathrm{d} t} = \frac{\beta I S}{N} - \gamma I - \mu I$$
+
+$$\frac{\mathrm{d} R}{\mathrm{d} t} = \gamma I - \mu R$$
+
+## Susceptible, Infectious, Recovered, Susceptible
+$$\frac{\mathrm{d} S}{\mathrm{d} t} = -\frac{\beta I S}{N}$$
+
+$$\frac{\mathrm{d} I}{\mathrm{d} t} = \frac{\beta I S}{N} - \gamma I$$
+
+$$\frac{\mathrm{d} R}{\mathrm{d} t} = \gamma I$$
+
+## Susceptible, Exposed, Infectious, Recovered
+$$\frac{\mathrm{d} S}{\mathrm{d} t} = -\frac{\beta I S}{N}$$
+
+$$\frac{\mathrm{d} I}{\mathrm{d} t} = \frac{\beta I S}{N} - \gamma I$$
+
+$$\frac{\mathrm{d} R}{\mathrm{d} t} = \gamma I$$
+
+## Susceptible, Exposed, Infectious, Recovered, Deceased
+$$\frac{\mathrm{d} S}{\mathrm{d} t} = -\frac{\beta I S}{N}$$
+
+$$\frac{\mathrm{d} I}{\mathrm{d} t} = \frac{\beta I S}{N} - \gamma I$$
+
+$$\frac{\mathrm{d} R}{\mathrm{d} t} = \gamma I$$
 
 <div id="sketch">
     <script type="text/javascript" src="{{ "assets/p1/sir_projection.js" | relative_url }}"></script>
